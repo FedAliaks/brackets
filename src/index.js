@@ -14,7 +14,16 @@ module.exports = function check(str, bracketsConfig) {
     let current = str[i];
 
     if(OPEN_BRACKETS.includes(current)) {
-      stack.push(current);
+      if(!CLOSE_BRACKETS.includes(current)) {
+        stack.push(current);
+      } else {
+        if(stack.length === 0 || stack[stack.length - 1] != current) {
+          stack.push(current);
+        } else {
+          stack.pop();
+        }
+      }
+
     } else {
       if(stack.length === 0) {
         return false;
