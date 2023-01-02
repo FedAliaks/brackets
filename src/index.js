@@ -3,11 +3,6 @@ module.exports = function check(str, bracketsConfig) {
 
   const OPEN_BRACKETS = bracketsConfig.map(item => item[0]);
   const CLOSE_BRACKETS = bracketsConfig.map(item => item[1]);
-
-  console.log(OPEN_BRACKETS);
-  console.log(CLOSE_BRACKETS);
-
-
   const stack = [];
 
   for (let i = 0; i < str.length; i++) {
@@ -23,7 +18,6 @@ module.exports = function check(str, bracketsConfig) {
           stack.pop();
         }
       }
-
     } else {
       if(stack.length === 0) {
         return false;
@@ -35,18 +29,10 @@ module.exports = function check(str, bracketsConfig) {
           return false;
         }
       }
-
     }
-
-
-
   }
 
-
-
   return stack.length === 0;
-
-
 }
 
 
